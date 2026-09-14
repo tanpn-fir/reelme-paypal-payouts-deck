@@ -30,7 +30,9 @@ const LANG_KEY = "reelme-paypal-lang";
 export default function Deck() {
   const [i, setI] = useState(0);
   const [zoom, setZoom] = useState<ZoomMedia>(null);
-  const [lang, setLang] = useState<Lang>("vi");
+  // Mặc định tiếng Anh (link trần gửi cho team PayPal ra EN luôn); người dùng
+  // đổi sang VI bằng nút 🌐, và localStorage / ?lang=vi vẫn ghi đè được.
+  const [lang, setLang] = useState<Lang>("en");
 
   // Khôi phục ngôn ngữ đã chọn (localStorage); cho phép override qua ?lang=en.
   useEffect(() => {
