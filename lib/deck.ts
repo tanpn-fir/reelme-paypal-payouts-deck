@@ -12,6 +12,7 @@
 
 export interface CoverSlide {
   kind: "cover";
+  logos?: boolean; // hiện lockup logo ReelMe × PayPal ở đầu cover
   eyebrow?: string;
   title: string;
   subtitle?: string;
@@ -287,6 +288,7 @@ export const deck: Slide[] = [
   // ---- Cover -------------------------------------------------------------
   {
     kind: "cover",
+    logos: true,
     eyebrow: t("ReelMe × PayPal", "ReelMe × PayPal"),
     title: t("Trả tiền cho creator, qua PayPal", "Paying creators, through PayPal"),
     subtitle: t(
@@ -309,6 +311,15 @@ export const deck: Slide[] = [
     caption: t(
       "Trang mời creator tham gia — họ đóng gói thứ mình hay làm thành template, người khác chạy thì họ được chia tiền.",
       "The page that invites creators in — they package what they make into a template, and earn when others run it.",
+    ),
+  },
+  {
+    kind: "image",
+    title: t("Một app — ảnh, video và quảng cáo bằng AI", "One app — AI images, video and ads"),
+    image: "/img/reelme-tools.png",
+    caption: t(
+      "Trang chủ ReelMe: Ads Studio, tạo ảnh/video, chỉnh sửa, face swap, xoá nền… gói gọn một chỗ.",
+      "The ReelMe home: Ads Studio, image/video gen, editing, face swap, background removal… all in one place.",
     ),
   },
   {
@@ -566,7 +577,6 @@ export const deck: Slide[] = [
     bullets: [
       t("PayPal Checkout cho nạp lẻ, Subscriptions cho gói định kỳ — đúng hướng chứ?", "PayPal Checkout for top-ups, Subscriptions for recurring plans — the right direction?"),
       t("Phí thu tiền bên nhận (ReelMe) là bao nhiêu?", "What's the fee on the collection side (ReelMe)?"),
-      t("Người mua ở VN / Đông Nam Á được hỗ trợ tới đâu, tiền tệ nào?", "How well are buyers in VN / SEA supported, and which currencies?"),
       t("Một tài khoản PayPal Business lo được cả thu lẫn chi chứ?", "Can one PayPal Business account handle both collecting and paying out?"),
     ],
   },

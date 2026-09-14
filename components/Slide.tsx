@@ -59,6 +59,21 @@ export default function Slide({ slide, lang }: { slide: SlideType; lang: Lang })
     case "cover":
       return (
         <div className="slide cover">
+          {slide.logos && (
+            <div className="cover-lockup" aria-label="ReelMe × PayPal">
+              <span className="lockup-brand">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/img/reelme-mark.svg" alt="" className="lockup-ico" />
+                <span className="lockup-name">ReelMe</span>
+              </span>
+              <span className="lockup-x" aria-hidden>×</span>
+              <span className="lockup-brand">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/img/paypal-mark.svg" alt="" className="lockup-ico paypal" />
+                <span className="lockup-name paypal">PayPal</span>
+              </span>
+            </div>
+          )}
           {slide.eyebrow && <p className="eyebrow">{slide.eyebrow}</p>}
           <h1 className="title">
             {slide.title}

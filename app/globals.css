@@ -1465,3 +1465,28 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   .bg-blob { animation: none; }
 }
+
+/* ===== Cover logo lockup: ReelMe × PayPal ===== */
+.cover-lockup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 26px;
+  animation: slideIn 0.5s both;
+}
+.lockup-brand { display: inline-flex; align-items: center; gap: 9px; }
+.lockup-ico { height: 30px; width: auto; display: block; }
+.lockup-ico.paypal { height: 26px; }
+.lockup-name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.lockup-name.paypal { color: #003087; font-style: italic; }
+.theme-dark .lockup-name.paypal { color: #a8c3ff; }
+.lockup-x {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
