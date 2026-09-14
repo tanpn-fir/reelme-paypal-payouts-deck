@@ -391,6 +391,17 @@ export const deck: Slide[] = [
     ],
   },
   {
+    kind: "split",
+    eyebrow: t("Màn hình thật trong ReelMe", "The real screen in ReelMe"),
+    title: t("Ví dụ: quyền bị thu hồi", "For example: access revoked"),
+    body: [
+      t("Creator gỡ ReelMe bên PayPal → mình hiện ngay thẻ đỏ “Access revoked”.", "A creator removes ReelMe on PayPal → we show a red “Access revoked” badge right away."),
+      t("Rút tiền bị chặn cho tới khi họ nối lại.", "Cash-out is blocked until they reconnect."),
+      t("Rất mong PayPal báo tín hiệu này qua webhook để mình hiện cho đúng.", "We'd love PayPal to signal this via webhook so we show it correctly."),
+    ],
+    image: "/img/account-revoked.png",
+  },
+  {
     kind: "bullets",
     eyebrow: t("Muốn hỏi PayPal", "To ask PayPal"),
     title: t("Về phần kết nối", "About connecting"),
@@ -434,6 +445,17 @@ export const deck: Slide[] = [
       { heading: t("Thất bại", "Failed"), body: t("PayPal từ chối — tiền quay lại số dư, creator rút lại được.", "PayPal declined — money returns to the balance, the creator can retry.") },
       { heading: t("Treo rồi trả về", "Unclaimed → Returned"), body: t("Email không có tài khoản PayPal — giữ 30 ngày rồi trả về.", "The email has no PayPal account — held 30 days, then returned.") },
     ],
+  },
+  {
+    kind: "split",
+    eyebrow: t("Màn hình thật trong ReelMe", "The real screen in ReelMe"),
+    title: t("Mỗi lần rút đều có dấu vết", "Every payout leaves a trail"),
+    body: [
+      t("Lịch sử hiện rõ Đã trả / Treo-trả về / Thất bại, kèm lý do.", "The history shows Paid / Returned / Failed, each with a reason."),
+      t("Mỗi dòng có mã PO-… để tra ngược với PayPal.", "Each row has a PO-… reference to check against PayPal."),
+      t("Bấm vào là ra biên nhận đầy đủ kèm dòng thời gian.", "Tapping one opens a full receipt with a timeline."),
+    ],
+    image: "/img/payout-history.png",
   },
   {
     kind: "bullets",
@@ -515,8 +537,42 @@ export const deck: Slide[] = [
     ],
   },
 
+  // ---- Phase 2 — user payments ------------------------------------------
+  { kind: "section", index: "05", title: t("Giai đoạn sau — thu tiền từ user", "A later phase — taking payments from users"), subtitle: t("Không chỉ trả tiền ra, mà còn thu tiền vào", "Not just money out — money in too") },
+  {
+    kind: "columns",
+    eyebrow: t("Hai chiều của dòng tiền", "Two directions of money"),
+    title: t("PayPal cho cả hai đầu", "PayPal on both ends"),
+    columns: [
+      { heading: t("Bây giờ · Tiền ra", "Now · Money out"), body: t("Trả thu nhập cho creator — phần mình vừa bàn ở trên.", "Paying creators their earnings — everything above.") },
+      { heading: t("Sau này · Tiền vào", "Later · Money in"), body: t("Cho user trả tiền cho ReelMe — mua gói, nạp thêm credit.", "Letting users pay ReelMe — buy a plan, top up credits.") },
+    ],
+  },
+  {
+    kind: "split",
+    eyebrow: t("Màn hình thật trong ReelMe", "The real screen in ReelMe"),
+    title: t("User mua gói bằng PayPal", "Users subscribe with PayPal"),
+    body: [
+      t("Các gói Free / Pro / Business đã có sẵn trong sản phẩm.", "Free / Pro / Business plans are already in the product."),
+      t("Giai đoạn sau: thêm PayPal làm cách trả tiền — gói hằng tháng.", "Later: add PayPal as a way to pay — monthly subscriptions."),
+      t("Và cho nạp lẻ credit khi cần (mua một lần).", "Plus one-off credit top-ups when needed."),
+    ],
+    image: "/img/subscription.png",
+  },
+  {
+    kind: "bullets",
+    eyebrow: t("Muốn hỏi PayPal", "To ask PayPal"),
+    title: t("Về phần user trả tiền", "About users paying us"),
+    bullets: [
+      t("PayPal Checkout cho nạp lẻ, Subscriptions cho gói định kỳ — đúng hướng chứ?", "PayPal Checkout for top-ups, Subscriptions for recurring plans — the right direction?"),
+      t("Phí thu tiền bên nhận (ReelMe) là bao nhiêu?", "What's the fee on the collection side (ReelMe)?"),
+      t("Người mua ở VN / Đông Nam Á được hỗ trợ tới đâu, tiền tệ nào?", "How well are buyers in VN / SEA supported, and which currencies?"),
+      t("Một tài khoản PayPal Business lo được cả thu lẫn chi chứ?", "Can one PayPal Business account handle both collecting and paying out?"),
+    ],
+  },
+
   // ---- The ask -----------------------------------------------------------
-  { kind: "section", index: "05", title: t("Mình cần gì ở PayPal", "What we'd need from PayPal") },
+  { kind: "section", index: "06", title: t("Mình cần gì ở PayPal", "What we'd need from PayPal") },
   {
     kind: "steps",
     eyebrow: t("Để bắt đầu bắt tay vào làm", "To actually get going"),
