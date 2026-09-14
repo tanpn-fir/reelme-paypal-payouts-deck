@@ -1,0 +1,16 @@
+/node_modules
+/.next
+/out
+/build
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*.local
+
+# Dự án bài tập là repo riêng (vibecode-studentwork)
+/workshop-landing
+
+# Ảnh nguồn (gồm gif nặng) — ảnh dùng đã copy vào public/
+/ss
+out/
+.next/
