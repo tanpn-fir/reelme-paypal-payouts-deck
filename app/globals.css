@@ -1428,3 +1428,40 @@ kbd {
   .stats .grid,
   .columns .grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Animated gradient blobs (nền động, thuần CSS — thay wave-video) ===== */
+.bg { overflow: hidden; }
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.bg-blob.b1 {
+  width: 640px; height: 640px; top: -180px; right: -120px;
+  background: radial-gradient(circle at 30% 30%, rgba(159,112,252,0.55), transparent 70%);
+  animation: blobDrift1 26s ease-in-out infinite;
+}
+.bg-blob.b2 {
+  width: 560px; height: 560px; bottom: -200px; left: -140px;
+  background: radial-gradient(circle at 40% 40%, rgba(53,86,235,0.42), transparent 70%);
+  animation: blobDrift2 32s ease-in-out infinite;
+}
+.bg-blob.b3 {
+  width: 420px; height: 420px; bottom: -140px; right: 12%;
+  background: radial-gradient(circle at 50% 50%, rgba(120,70,221,0.30), transparent 70%);
+  animation: blobDrift1 38s ease-in-out infinite reverse;
+}
+.theme-dark .bg-blob { opacity: 0.4; }
+@keyframes blobDrift1 {
+  0%,100% { transform: translate3d(0,0,0) scale(1); }
+  50%     { transform: translate3d(-40px,50px,0) scale(1.12); }
+}
+@keyframes blobDrift2 {
+  0%,100% { transform: translate3d(0,0,0) scale(1); }
+  50%     { transform: translate3d(50px,-40px,0) scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob { animation: none; }
+}

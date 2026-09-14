@@ -324,6 +324,17 @@ export const deck: Slide[] = [
     ],
   },
 
+  {
+    kind: "columns",
+    eyebrow: t("Tiền từ đâu ra", "Where the money comes from"),
+    title: t("Creator kiếm tiền thế nào", "How creators earn"),
+    columns: [
+      { heading: t("Chạy template", "A run happens"), body: t("Ai đó chạy template của creator → tốn credit trên nền tảng.", "Someone runs a creator's template → spends credits on the platform.") },
+      { heading: t("Chia sẻ 50%", "A 50% share"), body: t("Creator giữ 50% số credit của mỗi lượt chạy (giả định).", "The creator keeps 50% of the credits from each run (assumption).") },
+      { heading: t("Quy ra USD", "Turned into USD"), body: t("Credit khả dụng quy ra USD theo tỉ giá → chính là tiền đem rút về PayPal.", "Available credits convert to USD at a rate → that's the money paid out to PayPal.") },
+    ],
+  },
+
   // ---- 2 · Area A — Connect ---------------------------------------------
   { kind: "section", index: "02", title: t("Phần A — Kết nối tài khoản nhận tiền", "Area A — Connecting a payout account") },
   {
@@ -417,6 +428,17 @@ export const deck: Slide[] = [
   },
   {
     kind: "bullets",
+    eyebrow: t("Đối soát", "Reconciliation"),
+    title: t("Mỗi payout phải tra ngược được", "Every payout must be traceable"),
+    bullets: [
+      t("Mỗi payout mang một MÃ bền (vd PO-XXXXXXXX).", "Every payout carries a stable REFERENCE (e.g. PO-XXXXXXXX)."),
+      t("Mã đó khớp: biên nhận PayPal ↔ giao dịch credit sinh ra nó ↔ sổ kế toán.", "That reference ties: the PayPal receipt ↔ the credit transaction behind it ↔ the finance ledger."),
+      t("Cần cho hỗ trợ khách hàng và đối soát cuối kỳ.", "Needed for customer support and end-of-period reconciliation."),
+      t("Câu hỏi: PayPal trả về mã/biên nhận nào để chúng tôi lưu kèm?", "Question: what id/receipt does PayPal return for us to store alongside?"),
+    ],
+  },
+  {
+    kind: "bullets",
     eyebrow: t("Câu hỏi cho PayPal", "Questions for PayPal"),
     title: t("Chi trả — cần PayPal xác nhận", "Paying out — what we need to confirm"),
     bullets: [
@@ -439,6 +461,16 @@ export const deck: Slide[] = [
       t("Khoá tiền khi yêu cầu; mọi thất bại → trả về đúng số, không mất, không nhân đôi.", "Reserve on request; any failure → returns the exact amount, never lost, never doubled."),
       t("Người nhận được “chụp” lúc tạo payout — đổi tài khoản sau không đổi payout đang chạy.", "Recipient is snapshotted at creation — changing account later doesn't reroute an in-flight payout."),
       t("Mỗi payout có mã đối soát bền để tra ngược với PayPal.", "Every payout has a stable reference to reconcile with PayPal."),
+    ],
+  },
+  {
+    kind: "columns",
+    eyebrow: t("Ca hỏng & cách hứng", "Failure handling"),
+    title: t("Khi có sự cố, tiền không được mất", "When things break, money is never lost"),
+    columns: [
+      { heading: t("Lỗi khi tạo yêu cầu", "Error on request"), body: t("Không tạo bản ghi, không khoá tiền — creator thử lại an toàn.", "No record created, no money reserved — the creator retries safely.") },
+      { heading: t("Mất mạng / bấm hai lần", "Network / double click"), body: t("Chống trùng theo mã → không tạo hai payout.", "De-duped by reference → never two payouts.") },
+      { heading: t("Revoked giữa chừng", "Revoked mid-flight"), body: t("Payout đang chạy đi tiếp theo snapshot; payout MỚI bị chặn tới khi nối lại.", "An in-flight payout continues by snapshot; a NEW one is blocked until reconnected.") },
     ],
   },
   {
@@ -474,6 +506,16 @@ export const deck: Slide[] = [
       t("Đã có FE mô phỏng TRỌN VẸN vòng đời PayPal Payouts: kết nối, rút, biên nhận, 7 trạng thái.", "We've built a FULL front-end that models the PayPal Payouts lifecycle: connect, cash-out, receipt, 7 statuses."),
       t("Hiện là bản mock — chưa chạm tiền thật.", "It's a working mock today — no real money yet."),
       t("Sẵn sàng nối vào PayPal Payouts + Log in with PayPal thật.", "Ready to wire into real PayPal Payouts + Log in with PayPal."),
+    ],
+  },
+  {
+    kind: "steps",
+    eyebrow: t("Lộ trình đề xuất", "Proposed rollout"),
+    title: t("Sandbox → Thử nghiệm → Ra mắt", "Sandbox → Pilot → Launch"),
+    steps: [
+      { title: t("Sandbox", "Sandbox"), desc: t("Nối API thật ở môi trường thử, chạy hết các ca.", "Wire the real APIs in a test environment, run every case.") },
+      { title: t("Pilot", "Pilot"), desc: t("Mở cho một nhóm creator nhỏ, tiền thật, theo dõi sát.", "Open to a small creator cohort, real money, watched closely.") },
+      { title: t("Launch", "Launch"), desc: t("Mở rộng theo thị trường (VN / SEA trước).", "Roll out by market (VN / SEA first).") },
     ],
   },
   {
